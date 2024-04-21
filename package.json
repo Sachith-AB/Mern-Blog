@@ -1,0 +1,19 @@
+{
+  "name": "mern-blog",
+  "version": "1.0.0",
+  "description": "Rapid Application Development (RAD) is a dynamic approach to software development that prioritizes speed and flexibility without sacrificing quality. Unlike traditional waterfall methodologies that follow a linear process, RAD emphasizes iterative development cycles and rapid prototyping to quickly deliver functional software solutions.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+"dev":"nodemon api/index.js",
+"start": "node api/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodeman": "^1.1.2",
+    "nodemon": "^3.1.0"
+  }
+}
