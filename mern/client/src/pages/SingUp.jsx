@@ -6,7 +6,7 @@ import {Link,useNavigate} from 'react-router-dom';
 export default function SingUp() {
   
     const [formData,setFormData] = useState({});
-    const [erroMessage,setErrorMessage] = useState(null);
+    const [errorMessage,setErrorMessage] = useState(null);
     const [loading,setLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -33,9 +33,9 @@ export default function SingUp() {
       }
       setLoading(false);
       if(res.ok){
-        navigate('sign-in');
+        navigate('/sign-in');
       }
-   
+     
   }
   catch (error){
     setErrorMessage(error.message);
@@ -105,9 +105,9 @@ export default function SingUp() {
               </Link>
           </div>
           {
-            erroMessage && (
+            errorMessage && (
               <Alert className='mt-5' color='failure'>
-                {erroMessage}
+                {errorMessage}
               </Alert>
             )
           }

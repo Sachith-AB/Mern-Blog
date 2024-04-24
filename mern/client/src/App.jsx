@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard'
 import Project from './pages/Project'
 import Signin from './pages/SighIn'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="/Project" element={<Project/>} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   )
 }
