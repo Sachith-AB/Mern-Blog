@@ -71,7 +71,7 @@ export default function SingUp() {
 
              <div>
              <Label value='Your email'/>
-             <TextInput type='text'
+             <TextInput type='email'
              placeholder='name@company.com'
              id='email' onChange={handleChange}/>
             </div>
