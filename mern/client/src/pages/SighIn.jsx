@@ -1,8 +1,9 @@
 import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
 import React, { useState } from 'react'
 import {Link,useNavigate} from 'react-router-dom';
-import { signInStart,signInSucess,signInFailure } from '../redux/user/userSlice';
 import {useDispatch,useSelector} from 'react-redux';
+import { signInStart,signInSucess,signInFailure } from '../redux/user/userSlice';
+
 
 export default function SingIn() {
   
@@ -31,6 +32,7 @@ export default function SingIn() {
       if (data.success === false) {
        return dispatch(signInFailure(data.message));
       }
+     console.log(data);
      
       if(res.ok){
         dispatch(signInSucess(data));
