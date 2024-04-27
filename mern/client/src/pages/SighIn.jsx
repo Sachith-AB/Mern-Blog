@@ -100,7 +100,7 @@ export default function SingIn() {
             <span>
               Don't Have an account?
             </span>
-            <Link to='/sign-in' className='text-blue-500'>
+            <Link to='/sign-up' className='text-blue-500'>
               Sign Up
               </Link>
           </div>
