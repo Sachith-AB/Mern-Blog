@@ -11,11 +11,12 @@ export default function Header() {
     const path = useLocation().pathname;
     const dispatch=useDispatch();
     const {currentUser} = useSelector(state =>state.user)
+
     const handleSignout = async () =>{
         try{
             const res= await fetch('/api/user/signout',{
                 method:'POST'
-            })
+            });
             const data = await res.json();
             if(!res.ok){
                 console.log(data.message)
@@ -28,7 +29,8 @@ export default function Header() {
         catch(error){
             console.log(data.message)
         }
-    }
+    };
+
   return (
     <Navbar className='border-b-2'>
         <Link to="/" className='self-center whitespace-nowrap text-sm sm:text-xl 
@@ -79,10 +81,10 @@ export default function Header() {
               </Link>
               <Dropdown.Divider/>
               
-             <DropdownItem onClick={handleSignout}>
+             <Dropdown.Item onClick={handleSignout}>
               
                Sign out
-             </DropdownItem>
+             </Dropdown.Item>
              
                   
 

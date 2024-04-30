@@ -18,6 +18,7 @@ export default function DashSidebar() {
     setTab(tabFromUrl);
    }
   },[location.search])  
+  
   const handleSignout = async () =>{
         try{
             const res= await fetch('/api/user/signout',{
