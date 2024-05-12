@@ -77,7 +77,8 @@ export default function Search() {
     const handleSubmit= async(e)=>{
         e.preventDefault();
         const urlParams= new URLSearchParams(location.search);
-        urlParams.set('searchTerm',sidebarData.sort);
+        urlParams.set('searchTerm',sidebarData.searchTerm);
+        urlParams.set('sort',sidebarData.sort)
         urlParams.set('category',sidebarData.category);
         const searchQuery=urlParams.toString();
         navigate(`/search?${searchQuery}`);
@@ -88,6 +89,7 @@ export default function Search() {
         const numberOfPosts=posts.length;
         const startIndex=numberOfPosts;
         const urlParams=new URLSearchParams(location.search);
+        urlParams.set('startIndex',startIndex)
         const searchQuery=urlParams.toString();
         const res= await fetch(`/api/post/getposts?${searchQuery}`);
         if(!res.ok){
@@ -158,9 +160,9 @@ export default function Search() {
                         )
                     }
                     {
-                        !loading && posts && posts.map((post)=>{
+                        !loading && posts && posts.map((post)=>(
                             <PostCard key={post._id} post={post}/>
-                        })
+                        ))
                     }
                     {
                         showMore && <button className='text-teal-500 hover:underline p-7 w-full text-lg' onClick={handleShowMore}>
