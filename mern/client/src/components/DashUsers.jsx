@@ -88,7 +88,7 @@ export default function DashUsers() {
                     <Table.HeadCell>User image</Table.HeadCell>
                     <Table.HeadCell>User name</Table.HeadCell>
                     <Table.HeadCell>Email</Table.HeadCell>
-                    <Table.HeadCell>Email</Table.HeadCell>
+                    <Table.HeadCell>Admin</Table.HeadCell>
                     <Table.HeadCell>Delete</Table.HeadCell>
                     
                 </Table.Head>

@@ -64,7 +64,7 @@ export default function CreatePost() {
     console.log(formData);
     
     try{
-      const res = await fetch('/api/post/create',{
+      const res = await fetch('/api/add/create',{
         method:'POST',
         headers:{
           'Content-Type':'application/json'
@@ -77,10 +77,6 @@ export default function CreatePost() {
         return;
       }
      
-      if(res.ok){
-        setPublishError(null);
-        navigate(`/post/${data.slug}`);
-      }
     }
     catch(error){
       setPublishError('something went wrong')
@@ -89,7 +85,7 @@ export default function CreatePost() {
   return (
     <div className='p-3 max-w-3xl mx-auto min-h-screen'>
       <h1 className='text-center text-3xl font-semibold'>
-        Create a Post
+        Create a Add
       </h1>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <div className='flex flex-col gap-4 sm:flex-row justify-between'>
@@ -101,20 +97,7 @@ export default function CreatePost() {
             })
           }}
           />
-          <Select
-          onChange={(e) =>{
-            setFormData({
-              ...formData,title:e.target.value
-            })
-          }}>
-            <option value="uncategorized">Select a category</option>
-            <option value="javascript">JavaScript</option>
-            <option value="react.js">React.js</option>
-            <option value="next.js">Next.js</option>
-            <option value="node.js">node.js</option>
-            <option value="dart">Dart</option>
-
-          </Select>
+          
 
         </div>
         <div className='flex gap-4 items-center justify-between border-4
