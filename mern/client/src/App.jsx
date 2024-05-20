@@ -41,6 +41,7 @@ export default function App() {
         
         <Route path="/Project" element={<Project/>} />
         <Route path="/post/:postSlug" element={<PostPage/>} />
+        
       </Routes>
       <Footer/>
     </BrowserRouter>

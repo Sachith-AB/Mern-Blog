@@ -17,6 +17,10 @@ const addSchema = new mongoose.Schema(
             required:true,
             
         },
+        image:{
+            type:String,
+            default:'https://hbr.org/resources/images/article_assets/2021/02/Feb21_19_1218814245.jpg'
+        },
         slug:{
             type:String,
             required:true,

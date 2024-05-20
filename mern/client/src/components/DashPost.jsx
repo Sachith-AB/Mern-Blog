@@ -14,7 +14,7 @@ export default function DashPost() {
     const [showModal,setShowModal]=useState(false);
     const [postIdDelete,setPostIdDelete] = useState(' ')
     
-    //console.log(userPosts)
+    
     useEffect(() =>{
 
         const fetchPosts = async()=>{
