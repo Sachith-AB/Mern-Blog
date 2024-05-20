@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-import { TextInput,Button } from 'flowbite-react'
+import { TextInput,Button, Alert } from 'flowbite-react'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function CreateAdd() {
   const [formData,setFormData]=useState({});
+  const [PublishError,setPublishError]=useState(null);
+  const navigate=useNavigate();
   
   const handleSubmit=async(e)=>{
     e.preventDefault();
@@ -15,12 +18,19 @@ export default function CreateAdd() {
           'Content-Type':'application/json',
         },
         body:JSON.stringify(formData),
-        
-      })
+        })
       const data =  await res.json();
+      if(!res.ok){
+        setPublishError(data.message);
+        return;
+      }
+      if(res.ok){
+        setPublishError(null);
+        navigate(`/add/${data.slug}`);
+      }
     }
     catch(error){
-      console.log(error);
+      console.log('something went wrong');
     }
     
   }
@@ -48,6 +58,13 @@ export default function CreateAdd() {
           Publish
         </Button>
       </form>
+      {PublishError && <Alert color='failure' className='mt-4'>
+        {
+          PublishError
+        }
+      </Alert> 
+        
+      }
     </div>
   )
 }
