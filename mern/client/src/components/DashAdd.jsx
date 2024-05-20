@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {HiOutlineExclamationCircle} from 'react-icons/hi'
 
-export default function () {
+export default function DashAdd () {
     const {currentUser}=useSelector((state)=>state.user)
     const [userAdds,setUserAdds]= useState([]);
     const [addIdDelete,setAddIdDelete]=useState('');
@@ -22,7 +22,7 @@ export default function () {
                 const data = await res.json()
                 
                 if(res.ok){
-                    //setUserPosts(data.posts || null)
+                    
                     setUserAdds(data.adds)
                     if(data.add.length<9){
                         
@@ -41,7 +41,7 @@ export default function () {
     const handleDeleteAdd = async () =>{
         setShowModal(false);
         try{
-            const res = await fetch(`api/post/deleteadd/${addIdDelete}/${currentUser._id}`,
+            const res = await fetch(`api/add/deleteadd/${addIdDelete}`,
         {
             method:'DELETE',
         })
@@ -50,7 +50,7 @@ export default function () {
             console.log(data.message)
         }
         else{
-           setUserPosts((prev)=>
+           setUserAdds((prev)=>
            prev.filter((add)=> add._id !==addIdDelete));
         }
             
@@ -97,6 +97,7 @@ export default function () {
                                 <span onClick={()=>{
                                     setShowModal(true)
                                     setAddIdDelete(add._id)
+                                    console.log(add._id)
                                 }} className='font-medium text-red-500 hover:underline cursor-pointer'>
                                     Delete
                                 </span>

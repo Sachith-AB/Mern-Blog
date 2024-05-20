@@ -7,7 +7,7 @@ const router = expess.Router();
 
 router.post('/create',verifyToken,create);
 router.get('/getadds',getAdds);
-router.delete('/deleteadd/:addId/:userId',verifyToken,deleteAdd);
+router.delete('/deleteadd/:addId',verifyToken,deleteAdd);
 
 
 export default router;

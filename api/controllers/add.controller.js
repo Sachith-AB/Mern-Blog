@@ -67,7 +67,7 @@ export const getAdds=async(req,res,next)=>{
 };
 
 export const deleteAdd = async(req,res,next)=>{
-   if(!req.user.isAdmin || req.user.id !== req.params.userId){
+   if(!req.user.isAdmin){
     next(errorHandler(403,'You are not allowed to delete this content'))
    }
    try{
