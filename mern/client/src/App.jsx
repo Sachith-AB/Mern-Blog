@@ -17,6 +17,7 @@ import PostPage from './pages/PostPage'
 import ScrollTop from './components/ScrollTop'
 import Search from './pages/Search'
 import CreateAdd from './pages/CreateAdd'
+import AddPage from './pages/AddPage'
 
 export default function App() {
   return (
@@ -41,6 +42,7 @@ export default function App() {
         
         <Route path="/Project" element={<Project/>} />
         <Route path="/post/:postSlug" element={<PostPage/>} />
+        <Route path="/add/:addSlug" element={<AddPage/>} />
         
       </Routes>
       <Footer/>

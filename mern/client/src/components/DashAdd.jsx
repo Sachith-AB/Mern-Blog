@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import { Table,Button } from 'flowbite-react'
+import { Table,Button,Modal } from 'flowbite-react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import {HiOutlineExclamationCircle} from 'react-icons/hi'
 
 export default function () {
     const {currentUser}=useSelector((state)=>state.user)
     const [userAdds,setUserAdds]= useState([]);
+    const [addIdDelete,setAddIdDelete]=useState('');
+    const [showModal,setShowModal]= useState(false);
+
+    
     useEffect(() =>{
 
         const fetchPosts = async()=>{
             
             try{
                 const res = await fetch(`/api/add/getadds?userId=${currentUser._id}`);
-                console.log(res.data);
+                
                
                 const data = await res.json()
-                console.log(data)
+                
                 if(res.ok){
                     //setUserPosts(data.posts || null)
                     setUserAdds(data.adds)
@@ -32,6 +37,29 @@ export default function () {
             fetchPosts(); 
         }
     },[currentUser._id])
+
+    const handleDeleteAdd = async () =>{
+        setShowModal(false);
+        try{
+            const res = await fetch(`api/post/deleteadd/${addIdDelete}/${currentUser._id}`,
+        {
+            method:'DELETE',
+        })
+        const data=await res.json();
+        if(!res.ok){
+            console.log(data.message)
+        }
+        else{
+           setUserPosts((prev)=>
+           prev.filter((add)=> add._id !==addIdDelete));
+        }
+            
+        }
+        catch(error){
+            console.log(error.message)
+        }
+    }
+
   return (
     <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar
     scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700
@@ -68,7 +96,7 @@ export default function () {
                             <Table.Cell>
                                 <span onClick={()=>{
                                     setShowModal(true)
-                                    setPostIdDelete(add._id)
+                                    setAddIdDelete(add._id)
                                 }} className='font-medium text-red-500 hover:underline cursor-pointer'>
                                     Delete
                                 </span>
@@ -86,6 +114,30 @@ export default function () {
                 ))}
         </Table>
         </>
+
+        <Modal show = {showModal} onClose={() => setShowModal(false)} popupsize='md'>
+            <Modal.Header/>
+            <Modal.Body>
+                <div className='text-center'>
+                    <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400
+                    dark:text-gray-200 mb-4 mx-auto'/>
+                    <h3 className='mb-5 text-gray-500 text-lg'>
+                        Are you sure you want to delete this post?
+                    </h3>
+                    <div className='flex justify-center gap-4'>
+                         <Button color='failure' onClick={handleDeleteAdd}>
+                            Yes, I'm sure
+                        </Button>
+                        <Button 
+                        color = 'gray' onClick={() => setShowModal(false)}>
+                            No, cancel 
+
+                        </Button>
+                    </div>
+                   </div>
+
+            </Modal.Body>
+        </Modal>
 
     </div>
   )
