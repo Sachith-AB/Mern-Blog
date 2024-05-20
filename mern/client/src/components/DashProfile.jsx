@@ -214,6 +214,18 @@ export default function DashProfile() {
                 
                ) 
             }
+            {
+               currentUser.isAdmin && (
+                <Link to={'/create-add'}>
+                <Button type='button'
+                gradientDuoTone='purpleToBlue'
+                className='w-full'>
+                    Create  Add               
+                </Button>
+                </Link>
+                
+               ) 
+            }
         </form>
         <div className='text-red-500 flex justify-between mt-5'>
             <span onClick={() => setShowModal(true)} className='cursor-pointer'>
