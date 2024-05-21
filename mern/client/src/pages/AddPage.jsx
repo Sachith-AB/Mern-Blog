@@ -57,7 +57,7 @@ if(loading){
             </span>
 
         </div>
-        <div className='p-3 max-w-2xl mx-auto w-full post-content' dangerouslySetInnerHTML={{__html:add && add.content}}></div>
+        <div className='p-3 max-w-2xl mx-auto w-full add-content' dangerouslySetInnerHTML={{__html:add && add.content}}></div>
     </main>
   )
 }
