@@ -18,6 +18,7 @@ import ScrollTop from './components/ScrollTop'
 import Search from './pages/Search'
 import CreateAdd from './pages/CreateAdd'
 import AddPage from './pages/AddPage'
+import UpdateAdd from './pages/UpdateAdd'
 
 export default function App() {
   return (
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="/Create-post" element={<CreatePost/>} />
         <Route path="/update-post/:postId" element={<UpdatePost/>} />
         <Route path="/create-add" element={<CreateAdd/>} />
+        <Route path="/update-add/:addId" element={<UpdateAdd/>} />
         </Route>
         
         <Route path="/Project" element={<Project/>} />
