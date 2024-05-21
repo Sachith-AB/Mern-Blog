@@ -166,8 +166,7 @@ export default function UpdatePost() {
           alt='upload'
           className='w-full h-72 object-cover'
           />
-        )
-        } 
+        )} 
         <ReactQuill theme='snow'placeholder='Write something...' className='h-72 mb-12' required
         onChange={(value) =>{
           setFormData({...formData,content:value})
