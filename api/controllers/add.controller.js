@@ -78,3 +78,25 @@ export const deleteAdd = async(req,res,next)=>{
     next(error);
    }
 }
+
+export const updateadd=async(req,res,next)=>{
+    if(!req.user.isAdmin || req.user.id !==req.params.userId){
+        return next(errorHandler(403,'You are not allowed to update this add'))
+    }
+    try{
+        const updateadd= await Add.findByIdAndUpdate(
+            req.params.addId,
+            {
+                $set:{
+                    title:req.body.title,
+                    content:req.body.content,
+                    image:req.body.image,
+                }
+            },{new:true})
+               res.status(200).json(updateadd)
+        
+    }
+    catch(error){
+        console.log(error);
+    }
+}
