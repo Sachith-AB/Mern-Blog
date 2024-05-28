@@ -1,7 +1,12 @@
 import { Sidebar, SidebarItem } from 'flowbite-react'
 import React from 'react'
+<<<<<<< HEAD
 import {HiAnnotation, HiArrowSmRight, HiChartPie, HiDocument, HiDocumentText, HiOutlineUserGroup, HiUser} from 'react-icons/hi'
 import { MdAnnouncement } from 'react-icons/md';
+=======
+import {HiAnnotation, HiArrowSmRight, HiChartPie, HiDocumentText, HiOutlineUserGroup, HiUser} from 'react-icons/hi'
+import { HiMiniChatBubbleLeftEllipsis } from "react-icons/hi2";
+>>>>>>> d2c6f2f79b7fa69cc9136d1260fc91ab80838533
 import { useEffect,useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { signOutSucess } from '../redux/user/userSlice'
@@ -64,6 +69,13 @@ export default function DashSidebar() {
                 <Link to = '/dashboard?tab=posts'>
                 <Sidebar.Item active = {tab==='posts'} icon={HiDocumentText} as='div'>
                   Posts
+                </Sidebar.Item>
+                </Link>
+              )}
+               {currentUser.isAdmin && (
+                <Link to = '/dashboard?tab=adds'>
+                <Sidebar.Item active = {tab==='adds'} icon={HiMiniChatBubbleLeftEllipsis} as='div'>
+                  Adds
                 </Sidebar.Item>
                 </Link>
               )}

@@ -26,6 +26,10 @@ export default function UpdatePost() {
             const res=await fetch(`/api/post/getposts?postId=${postId}`);
             const data=await res.json();
             
+<<<<<<< HEAD
+=======
+            
+>>>>>>> d2c6f2f79b7fa69cc9136d1260fc91ab80838533
             if(!res.ok){
                 console.log(data.message);
                 setPublishError(data.message)
@@ -34,6 +38,7 @@ export default function UpdatePost() {
             if(res.ok && data.posts && data.posts.length > 0){
                 setPublishError(null);
                 setFormData(data.posts[0]);
+                
             }
             
         }

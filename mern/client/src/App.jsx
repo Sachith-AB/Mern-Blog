@@ -17,8 +17,11 @@ import PostPage from './pages/PostPage'
 import ScrollTop from './components/ScrollTop'
 import Search from './pages/Search'
 import CreateAdd from './pages/CreateAdd'
+<<<<<<< HEAD
 import AddPage from './pages/AddPage'
 import UpdateAdd from './pages/UpdateAdd'
+=======
+>>>>>>> d2c6f2f79b7fa69cc9136d1260fc91ab80838533
 
 export default function App() {
   return (
@@ -39,7 +42,10 @@ export default function App() {
         <Route path="/Create-post" element={<CreatePost/>} />
         <Route path="/update-post/:postId" element={<UpdatePost/>} />
         <Route path="/create-add" element={<CreateAdd/>} />
+<<<<<<< HEAD
         <Route path="/update-add/:addId" element={<UpdateAdd/>} />
+=======
+>>>>>>> d2c6f2f79b7fa69cc9136d1260fc91ab80838533
         </Route>
         
         <Route path="/Project" element={<Project/>} />

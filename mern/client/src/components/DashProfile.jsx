@@ -214,13 +214,21 @@ export default function DashProfile() {
                 
                ) 
             }
+<<<<<<< HEAD
             {
+=======
+             {
+>>>>>>> d2c6f2f79b7fa69cc9136d1260fc91ab80838533
                currentUser.isAdmin && (
                 <Link to={'/create-add'}>
                 <Button type='button'
                 gradientDuoTone='purpleToBlue'
                 className='w-full'>
+<<<<<<< HEAD
                     Create  Add               
+=======
+                    Create a Add
+>>>>>>> d2c6f2f79b7fa69cc9136d1260fc91ab80838533
                 </Button>
                 </Link>
                 
