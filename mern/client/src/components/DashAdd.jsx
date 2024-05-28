@@ -64,9 +64,10 @@ export default function DashAdd () {
     <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar
     scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700
     dark:scrollbar-thumb-slate-500'>
+       {currentUser.isAdmin  && userAdds.length ?(
         <>
-        <Table>
-        <Table.Head>
+            <Table>
+                <Table.Head>
                     <Table.HeadCell>Date updated</Table.HeadCell>
                     <Table.HeadCell>Post image</Table.HeadCell>
                     <Table.HeadCell>Post title</Table.HeadCell>
@@ -115,7 +116,9 @@ export default function DashAdd () {
                 ))}
         </Table>
         </>
-
+     ):(
+        <p>You have no add!</p>
+    )}
         <Modal show = {showModal} onClose={() => setShowModal(false)} popupsize='md'>
             <Modal.Header/>
             <Modal.Body>

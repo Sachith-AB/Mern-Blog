@@ -44,7 +44,8 @@ export default function DashPost() {
         const startIndex=userPosts.length;
         try{
             const res = await fetch(`/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`)
-            const data= await res.json();
+            //const data= await res.json();
+            console.log(res.data);
             if(res.ok){
                 setUserPosts((prev) =>[...prev,...data.posts]);
                 if(data.posts.length<9){
