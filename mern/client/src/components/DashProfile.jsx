@@ -252,7 +252,7 @@ export default function DashProfile() {
         )}
         <Modal show = {showModal} onClose={() => setShowModal(false)} popupsize='md'>
             <Modal.Header/>
-            <Modal.Body>
+             <Modal.Body>
                 <div className='text-center'>
                     <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400
                     dark:text-gray-200 mb-4 mx-auto'/>
