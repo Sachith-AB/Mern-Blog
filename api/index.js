@@ -7,7 +7,8 @@ import cookieParser from 'cookie-parser';
 import postRoutes from './routes/post.route.js'
 import addRoutes from './routes/add.route.js'
 import commentRoutes from './routes/comment.route.js'
-import path from 'path';
+import addRoutes from './routes/add.route.js'
+import path from 'path'
 
 dotenv.config();
 
@@ -35,12 +36,15 @@ app.use('/api/auth',authRoutes);
 app.use('/api/post',postRoutes);
 app.use('/api/comment',commentRoutes);
 app.use('/api/add',addRoutes);
+<<<<<<< HEAD
+=======
 
 app.use(express.static(path.join(__dirname, '/client/dist')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
+>>>>>>> d2c6f2f79b7fa69cc9136d1260fc91ab80838533
 
 app.use((err,req,res,next) => {
   const statusCode = err.statusCode || 500;
