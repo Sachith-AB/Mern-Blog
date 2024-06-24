@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {FaThumbsUp}  from 'react-icons/fa'
 import { useSelector } from 'react-redux'
-import {Button, Textarea} from 'flowbite-react'
-import { deleteComment } from '../../../../api/controllers/comment.controller'
+
 
 
 

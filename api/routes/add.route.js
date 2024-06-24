@@ -11,7 +11,6 @@ router.delete('/deleteadd/:addId',verifyToken,deleteAdd);
 router.put('/updateadd/:addId/:userId',verifyToken,updateadd)
 
 
-<<<<<<< Updated upstream
+
 export default router;
-=======
->>>>>>> Stashed changes
+
